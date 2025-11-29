@@ -1,0 +1,54 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.20"
+optimizer = true
+optimizer_runs = 200
+via_ir = true
+
+# Enable gas optimization for Monad's parallel execution
+gas_limit = 30000000
+gas_price = 1000000000
+
+# Monad-specific optimizations
+bytecode_hash = "none"
+cbor_metadata = false
+
+[rpc_endpoints]
+monad_testnet = "https://testnet-rpc.monad.xyz"
+localhost = "http://127.0.0.1:8545"
+
+[etherscan]
+monad_testnet = { key = "${ETHERSCAN_API_KEY}", url = "https://testnet.monadscan.com/api" }
+
+# Fuzz testing configuration
+[fuzz]
+runs = 1000
+max_test_rejects = 200000
+seed = '0x3e8'
+dictionary_weight = 40
+include_storage = true
+include_push_bytes = true
+
+# Invariant testing configuration  
+[invariant]
+runs = 256
+depth = 50
+fail_on_revert = false
+call_override = false
+dictionary_weight = 80
+include_storage = true
+include_push_bytes = true
+
+# Gas reporting
+[fmt]
+line_length = 120
+tab_width = 4
+bracket_spacing = false
+int_types = "long"
+
+# Test configuration
+[profile.test]
+verbosity = 3
+gas_reports = ["*"]

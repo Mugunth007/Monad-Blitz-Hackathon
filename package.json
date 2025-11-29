@@ -1,0 +1,32 @@
+{
+  "name": "voterush",
+  "version": "1.0.0",
+  "description": "VoteRush - Lightning-fast voting dApp on Monad blockchain",
+  "scripts": {
+    "create-demo-poll": "ts-node scripts/create-demo-poll.ts",
+    "stress-test": "ts-node scripts/simulate-stress.ts",
+    "build": "forge build",
+    "test": "forge test -vvv",
+    "deploy": "forge script script/Deploy.s.sol --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --verifier sourcify --verifier-url $VERIFIER_URL",
+    "demo": "forge script script/Interact.s.sol --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast"
+  },
+  "dependencies": {
+    "viem": "^2.21.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.0"
+  },
+  "keywords": [
+    "blockchain",
+    "voting",
+    "monad",
+    "defi",
+    "solidity",
+    "foundry"
+  ],
+  "author": "VoteRush Team",
+  "license": "MIT"
+}
